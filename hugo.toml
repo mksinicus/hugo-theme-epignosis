@@ -1,0 +1,8 @@
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.146.0"
+
+[author]
+  name = "Marcus K. Zhong"
+  homepage = "https://github.com/marcuskzhong"

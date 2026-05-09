@@ -1,0 +1,358 @@
+// Epignosis — Shared Styles
+// Mixins, base elements, and utility classes
+// Adapted and modernized from my-rmd-stylesheets
+
+@use 'colors';
+
+// ============================================================
+// Mixins
+// ============================================================
+
+@mixin card($bg, $border-color) {
+  background: $bg;
+  border-left: 5px solid $border-color;
+  margin: 0.5em 0;
+  padding: 0.5em 1.5rem;
+  padding-left: calc(1.5em - 5px);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+
+  & & {
+    padding-right: 0;
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ============================================================
+// Base elements
+// ============================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+
+  @media print {
+    color: #000000;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+// Links
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin: 1.1rem 0 var(--block-margin) 0;
+
+  & + h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 400;
+  border-bottom: 1px solid var(--color-border-card);
+  padding-bottom: 0.2em;
+}
+
+h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+// Paragraphs and blocks
+p, ol, ul, pre, dl, blockquote {
+  margin: 0 0 var(--block-margin) 0;
+}
+
+ol, ul {
+  padding-left: 2em;
+}
+
+li ul,
+li ol {
+  &:last-of-type { margin-bottom: 0; }
+  &:first-of-type { margin-top: 0; }
+}
+
+// Horizontal rule
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border-card);
+  margin: 1.5em 0;
+}
+
+// ============================================================
+// Code
+// ============================================================
+
+code {
+  background-color: var(--color-code-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.3em;
+  font-size: var(--font-size-code);
+}
+
+pre {
+  background-color: var(--color-code-bg);
+  border: none;
+  border-left: 5px solid var(--color-pre-border);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.75em 1.5em;
+  overflow-x: auto;
+  line-height: 1.5;
+
+  code {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    display: block;
+    font-size: inherit;
+  }
+}
+
+kbd {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-sm);
+  padding: 0 0.3em;
+  font-size: 0.85em;
+  box-shadow: 0 1px 0 var(--color-border-card);
+}
+
+// ============================================================
+// Tables
+// ============================================================
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto var(--block-margin);
+  overflow-x: auto;
+  display: block;
+
+  @media (min-width: 768px) {
+    display: table;
+  }
+}
+
+th {
+  text-align: center;
+  font-weight: 600;
+}
+
+td, th {
+  border: 1px solid var(--color-border);
+  padding: 0.4em 0.6em;
+}
+
+thead, tfoot {
+  background: var(--color-table-head);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-table-stripe);
+}
+
+td[colspan] {
+  text-align: center;
+}
+
+// ============================================================
+// Blockquotes
+// ============================================================
+
+blockquote {
+  @include card(var(--color-blockquote-bg), var(--color-blockquote-border));
+  font-style: italic;
+
+  blockquote {
+    margin-top: 0;
+  }
+}
+
+// ============================================================
+// Definition lists
+// ============================================================
+
+dt::after {
+  content: ":";
+  color: #999;
+}
+
+dd {
+  display: list-item;
+  margin-left: 2em;
+}
+
+dl {
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 0.5em;
+  padding-left: calc(1em - 1px);
+}
+
+// ============================================================
+// Cards / Callouts
+// ============================================================
+
+// Note card (replaces .nota, .n of original)
+.note,
+.notecard {
+  @include card(var(--color-note-bg), var(--color-note-border));
+}
+
+div.note + div.note {
+  border-top: 1px solid var(--color-note-border);
+}
+
+span.note {
+  display: inline-block;
+  border: 1px solid var(--color-note-border);
+  background-color: var(--color-note-bg);
+  padding: 0.1em 0.3em;
+  margin: 0 0.1em;
+  border-radius: var(--radius-sm);
+}
+
+// Alert
+.alert {
+  @include card(var(--color-alert-bg), var(--color-alert-border));
+}
+
+// Warning
+.warning {
+  @include card(var(--color-warning-bg), var(--color-warning-border));
+}
+
+// Example
+.example {
+  @include card(var(--color-example-bg), var(--color-example-border));
+}
+
+// ============================================================
+// Utilities
+// ============================================================
+
+.centered {
+  text-align: center;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none;
+}
+
+// Attribution (replaces .dixit / .said)
+.attribution {
+  p {
+    text-align: right;
+    font-size: 0.95em;
+    font-style: italic;
+
+    &::before {
+      content: "— ";
+      color: #999;
+    }
+  }
+}
+
+// Clean table (replaces .tabulapuro)
+.cleantable {
+  table, th, tr, td {
+    border: none;
+    font-weight: normal;
+    background: transparent;
+  }
+}
+
+// Image / media responsiveness
+img, iframe, video, math {
+  max-width: 100%;
+  height: auto;
+}
+
+// Redacted text (spoiler / heimu)
+.redacted {
+  background-color: #000;
+  color: transparent;
+  transition: color var(--transition-base);
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+// Flex row
+.flexrow {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  &.flexcent {
+    align-items: center;
+  }
+
+  &.twocol > div {
+    flex: 1 1 45%;
+    min-width: 250px;
+  }
+}
+
+// Ruby annotations
+ruby > rt {
+  font-size: 0.6em;
+}
+
+// Task lists
+ul.task-list input[type="checkbox"] {
+  margin-left: -1.3em;
+}
+
+// Mark / highlight
+mark {
+  background-color: #ffff77;
+}

@@ -1,0 +1,80 @@
+// Epignosis — Colors
+// CSS custom properties for theming
+
+:root {
+  // Base
+  --color-bg: #ffffff;
+  --color-fg: #333333;
+
+  // Accent (sisu blue, from original my-rmd-stylesheets)
+  --color-accent: #0062ac;
+  --color-accent-light: #00a4e3;
+
+  // Links
+  --color-link: #4183c4;
+  --color-link-hover: #1a5a9a;
+
+  // Borders
+  --color-border: #d8d8d8;
+  --color-border-light: #eeeeee;
+  --color-border-card: #ddd;
+
+  // Surfaces
+  --color-surface: #fafafa;
+  --color-code-bg: #f6f6f6;
+  --color-table-head: #eaeaea;
+  --color-table-stripe: #f5f5f5;
+
+  // Cards
+  --color-note-bg: #dcf4ff;
+  --color-note-border: #89acd7;
+  --color-alert-bg: #e1c542;
+  --color-alert-border: #fef1b6;
+  --color-warning-bg: #d8454c;
+  --color-warning-border: #ffcece;
+  --color-example-bg: #f4f4f4;
+  --color-example-border: #223366;
+  --color-blockquote-bg: #fafafa;
+  --color-blockquote-border: #cccccc;
+  --color-code-border: #223366;
+  --color-pre-border: #223366;
+
+  // Layout
+  --max-width: 48rem;
+  --max-width-wide: 70rem;
+  --aside-width: 13rem;
+  --margin-note-width: 9rem;
+  --content-padding: 1rem;
+  --block-margin: 0.7em;
+
+  // Typography
+  --line-height: 1.6;
+  --line-height-heading: 1.3;
+  --font-size-base: 16px;
+  --font-size-small: 0.8em;
+  --font-size-code: 0.9em;
+  --font-size-h1: 2em;
+  --font-size-h2: 1.5em;
+  --font-size-h3: 1.25em;
+
+  // Radius
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --radius-lg: 8px;
+
+  // Shadows
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  // Transitions
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+}
+
+@media print {
+  :root {
+    --color-bg: #ffffff;
+    --color-fg: #000000;
+  }
+}

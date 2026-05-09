@@ -1,0 +1,50 @@
+// Epignosis — Pagefind theme customization
+// CSS custom properties targeting Pagefind's Component UI
+
+pagefind-searchbox,
+pagefind-modal,
+pagefind-modal-trigger,
+pagefind-input,
+pagefind-results,
+pagefind-summary,
+pagefind-filter-dropdown,
+pagefind-filter-pane {
+  // Core
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--color-accent);
+  --pagefind-ui-text: var(--color-fg);
+  --pagefind-ui-background: var(--color-bg);
+  --pagefind-ui-border: var(--color-border-light);
+  --pagefind-ui-border-radius: var(--radius-md);
+  --pagefind-ui-image-border-radius: var(--radius-sm);
+  --pagefind-ui-font: var(--font-body);
+
+  // Hover states
+  --pagefind-ui-primary-hover: var(--color-accent-light);
+
+  // Scrollbar (for modal)
+  --pagefind-ui-scrollbar-thumb: var(--color-border-card);
+  --pagefind-ui-scrollbar-track: transparent;
+}
+
+// Modal trigger button styling
+pagefind-modal-trigger {
+  cursor: pointer;
+
+  &::part(button) {
+    cursor: pointer;
+    padding: 0.4em 0.8em;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-body);
+    font-size: 0.9em;
+    transition: all var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+  }
+}

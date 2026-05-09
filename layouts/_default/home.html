@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="home-hero">
+  <h1 class="home-title">{{ .Title }}</h1>
+  {{ with .Description }}
+  <p class="home-subtitle">{{ . }}</p>
+  {{ end }}
+  <div class="home-search">
+    <pagefind-searchbox show-branding="true"></pagefind-searchbox>
+  </div>
+  {{ with .Content }}
+  <div class="home-content">
+    {{ . }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}

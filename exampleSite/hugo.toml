@@ -1,0 +1,19 @@
+baseURL = "http://localhost"
+locale = "zh-cn"
+defaultContentLanguage = "zh"
+title = "Epignosis"
+theme = "epignosis-theme"
+
+[taxonomies]
+  tag = "tags"
+  category = "category"
+
+[params]
+  description = "知识库 — nous (心灵) · physis (自然) · techne (技艺)"
+
+[build]
+  writeStats = true
+
+[markup]
+  [markup.highlight]
+    style = "solarized-light"

@@ -1,0 +1,84 @@
+// Epignosis — Homepage styles
+// Wikipedia-like search-centric landing page
+
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.home-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  margin: 0 0 0.5rem;
+  color: var(--color-fg);
+}
+
+.home-subtitle {
+  font-size: 1.1em;
+  color: #888;
+  margin: 0 0 2.5rem;
+  font-weight: 300;
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.home-search {
+  width: 100%;
+  max-width: 42rem;
+
+  pagefind-searchbox {
+    --pagefind-ui-scale: 1.3;
+    --pagefind-ui-primary: var(--color-accent);
+    --pagefind-ui-text: var(--color-fg);
+    --pagefind-ui-background: var(--color-bg);
+    --pagefind-ui-border: var(--color-border-light);
+    --pagefind-ui-border-radius: var(--radius-lg);
+    --pagefind-ui-image-border-radius: var(--radius-sm);
+    --pagefind-ui-font: var(--font-body);
+  }
+}
+
+// Category links below search
+.home-categories {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-cat-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1.2em;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: var(--color-fg);
+  font-size: 1em;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: rgba(0, 98, 172, 0.04);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+}
+
+.home-cat-label {
+  font-weight: 500;
+}
+
+.home-cat-count {
+  color: #999;
+  font-size: 0.85em;
+}

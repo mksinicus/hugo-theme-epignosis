@@ -1,0 +1,40 @@
+{{ define "main" }}
+<article class="page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    <div class="entry-meta">
+      {{ range .Params.category }}
+      <a href="/category/{{ . }}/" class="entry-category cat-{{ . }}">
+        {{ . }}
+      </a>
+      {{ end }}
+      <time class="entry-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      {{ with .Params.tags }}
+      <span class="entry-tags">
+        {{ range . }}
+        <a href="/tags/{{ . | urlize }}/" class="entry-tag">#{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+    </div>
+    {{ with .Description }}
+    <p class="entry-summary">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  {{ if .TableOfContents }}
+  <div class="content-area">
+    <aside class="toc">
+      {{ .TableOfContents }}
+    </aside>
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+  </div>
+  {{ else }}
+  <div class="article-body">
+    {{ .Content }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}

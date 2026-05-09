@@ -1,0 +1,217 @@
+// Epignosis — Layout
+// Site structure: header, main, aside, footer
+
+// ============================================================
+// Site wrapper
+// ============================================================
+
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// ============================================================
+// Header / Navigation
+// ============================================================
+
+.site-header {
+  border-bottom: 1px solid var(--color-border-light);
+  background: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.header-inner {
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 0.5rem var(--content-padding);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--color-fg);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  margin-right: 0.5rem;
+
+  &:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+}
+
+.site-nav {
+  display: flex;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  padding: 0.25em 0.6em;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-fg);
+  font-size: 0.9em;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba(0, 98, 172, 0.08);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+}
+
+.nav-search {
+  min-width: 180px;
+  max-width: 280px;
+  flex: 1;
+  margin-left: auto;
+
+  pagefind-searchbox {
+    --pagefind-ui-scale: 0.85;
+  }
+}
+
+// ============================================================
+// Main content area
+// ============================================================
+
+.site-main {
+  flex: 1;
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 0 var(--content-padding);
+
+  @media (min-width: 1120px) {
+    max-width: var(--max-width-wide);
+    margin: 2rem auto;
+  }
+}
+
+// ============================================================
+// Content area with aside (TOC on the left)
+// ============================================================
+
+.content-area {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: 1120px) {
+    grid-template-columns: var(--aside-width) 1fr;
+    align-items: start;
+  }
+}
+
+.article-body {
+  min-width: 0; // prevents overflow in grid
+  max-width: var(--max-width);
+
+  @media (min-width: 1120px) {
+    grid-column: 2;
+  }
+}
+
+// ============================================================
+// Table of Contents (aside)
+// ============================================================
+
+.toc {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 0.75em;
+  font-size: 0.9em;
+  line-height: 1.5;
+
+  @media (min-width: 1120px) {
+    position: sticky;
+    top: 4rem;
+    max-height: 88vh;
+    overflow-y: auto;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 1.2em;
+    margin: 0;
+  }
+
+  li {
+    margin: 0.2em 0;
+  }
+
+  a {
+    display: block;
+    color: var(--color-fg);
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  // TOC heading
+  &::before {
+    content: "目录";
+    display: block;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-size: 1.1em;
+    color: var(--color-accent);
+  }
+}
+
+// ============================================================
+// Margin notes (aside floating elements)
+// ============================================================
+
+@media (min-width: 1120px) {
+  .margin-note {
+    float: right;
+    clear: both;
+    margin-right: -10rem;
+    width: var(--margin-note-width);
+    padding: 0.2rem 0.1rem;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    hyphens: auto;
+    text-align: justify;
+
+    blockquote &,
+    .note &,
+    .alert &,
+    .warning &,
+    .example & {
+      margin-right: calc(-10rem - 1.5rem);
+    }
+  }
+}
+
+// ============================================================
+// Footer
+// ============================================================
+
+.site-footer {
+  border-top: 1px solid var(--color-border-light);
+  padding: 1.5rem var(--content-padding);
+  text-align: center;
+  font-size: var(--font-size-small);
+  color: #999;
+  margin-top: auto;
+}

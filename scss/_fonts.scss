@@ -1,0 +1,134 @@
+// Epignosis — Fonts
+// Adapted from my-rmd-stylesheets
+
+// Base font stacks
+$base-sans: "Roboto", "Noto Sans", "DejaVu Sans";
+$cjk-sans: "Sarasa Gothic SC", "Noto Sans CJK SC", "Source Han Sans SC",
+  "Microsoft YaHei", "HeiTi";
+$deva-sans: "Noto Sans Devanagari";
+$arab-sans: "Noto Sans Arabic";
+
+$base-serif: "FreeSerif", "Galatia SIL", "STIX Two Text", Times, "Noto Serif";
+$cjk-serif: "Noto Serif CJK SC", "Source Han Serif SC", "华文中宋", "HanaMinB";
+$deva-serif: "Siddhanta", "Noto Serif Devanagari";
+$arab-serif: "Noto Naskh Arabic";
+
+$mono-font: "Iosevka", "Sarasa Mono SC", "Noto Sans Mono",
+  "Noto Sans Mono CJK SC", "Consolas", "Microsoft YaHei", monospace;
+
+$math-font: "STIX Two Math", "Fira Math", math, serif;
+
+// Combined font stacks
+$font-sans: $base-sans, $cjk-sans, $deva-sans, $arab-sans, sans-serif;
+$font-serif: $base-serif, $cjk-serif, $deva-serif, $arab-serif, serif;
+$font-mono: $mono-font;
+
+// CJK typography tricks
+$font-tricks: "glyph-correction", "punct";
+
+// Default: use sans-serif for screen
+$font-body: $font-tricks, $font-sans;
+
+:root {
+  --font-sans: #{$font-sans};
+  --font-serif: #{$font-serif};
+  --font-mono: #{$font-mono};
+  --font-body: #{$font-body};
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media print {
+    font-size: 13px;
+  }
+}
+
+// CJK-specific font override
+:lang(zh),
+:lang(ja) {
+  body &,
+  & body {
+    font-family: $font-tricks, var(--font-body);
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  line-height: var(--line-height-heading);
+}
+
+// Code
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+  font-size: var(--font-size-code);
+}
+
+// Math
+math {
+  font-family: $math-font;
+}
+
+mtext {
+  font-family: var(--font-body);
+}
+
+// CJK emphasis marker — dot below text
+span.cem {
+  font-style: normal;
+  padding: 0.2em 0;
+  background: {
+    image: radial-gradient(0.08em 0.08em at center center,
+        currentColor, currentColor 70%, transparent);
+    size: 1em 0.3em;
+    position: bottom left;
+    repeat: repeat-x;
+  }
+}
+
+@media print {
+  span.cem {
+    text-emphasis: '\2022';
+    text-emphasis-position: under;
+  }
+}
+
+// CJK del — line-through instead of strikethrough
+del {
+  &:lang(zh),
+  &:lang(ja) {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 50%;
+    background-size: 100% 2px;
+    background-repeat: repeat-x;
+    text-decoration: none;
+  }
+}
+
+// CJK underline position
+u:lang(zh) {
+  text-underline-position: under;
+}
+
+// Small caps utility
+.sc {
+  font-variant: small-caps;
+}
+
+.small, small, .footnotes {
+  font-size: var(--font-size-small);
+}
+
+// Print: use sans-serif for bold elements in CJK context
+@media print {
+  h1, h2, h3, strong, th {
+    font-family: $font-tricks, $font-sans;
+    font-weight: bold;
+  }
+}

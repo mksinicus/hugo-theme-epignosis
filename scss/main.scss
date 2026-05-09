@@ -1,0 +1,272 @@
+// Epignosis — Main Stylesheet
+// Entry point that imports all partials
+// Compile with: sass scss/main.scss static/css/main.css
+
+@use 'colors';
+@use 'fonts';
+@use 'shared';
+@use 'layout';
+@use 'pagefind';
+
+// ============================================================
+// Content page: single entry
+// ============================================================
+
+// Entry metadata
+.entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  font-size: var(--font-size-small);
+}
+
+.entry-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.2em 0.7em;
+  border-radius: 2em;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.85em;
+  letter-spacing: 0.03em;
+  border: 1px solid transparent;
+
+  &.cat-physis {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border-color: #a5d6a7;
+  }
+
+  &.cat-techne {
+    background: #fff3e0;
+    color: #e65100;
+    border-color: #ffcc80;
+  }
+
+  &.cat-nous {
+    background: #e3f2fd;
+    color: #1565c0;
+    border-color: #90caf9;
+  }
+}
+
+.entry-date {
+  color: #999;
+}
+
+.entry-tags {
+  display: inline-flex;
+  gap: 0.4em;
+  flex-wrap: wrap;
+}
+
+.entry-tag {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: 2em;
+  font-size: var(--font-size-small);
+  color: #666;
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+}
+
+// ============================================================
+// Taxonomy / List pages
+// ============================================================
+
+.list-header {
+  margin-bottom: 2rem;
+}
+
+.list-title {
+  font-size: var(--font-size-h2);
+  font-weight: 300;
+  margin: 0 0 0.5rem;
+}
+
+.list-description {
+  color: #888;
+  font-size: 1em;
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.entry-list-item {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 0.8em 1.2em;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-accent-light);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.entry-list-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-wrap: wrap;
+}
+
+.entry-list-title {
+  font-size: 1.05em;
+  font-weight: 500;
+  color: var(--color-fg);
+}
+
+.entry-list-category {
+  font-size: var(--font-size-small);
+}
+
+.entry-list-excerpt {
+  color: #888;
+  font-size: var(--font-size-small);
+  margin-top: 0.3em;
+}
+
+.entry-list-count {
+  margin-left: auto;
+  color: #999;
+  font-size: var(--font-size-small);
+  font-weight: 500;
+}
+
+// ============================================================
+// Tag Cloud
+// ============================================================
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+  padding: 1em 0;
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.2em 0.7em;
+  border: 1px solid var(--color-border-light);
+  border-radius: 2em;
+  color: var(--color-fg);
+  text-decoration: none;
+  font-size: calc(0.75em + 0.25em * var(--tag-count));
+  line-height: 1.4;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.tag-chip-count {
+  font-size: 0.7em;
+  color: #999;
+  font-weight: 400;
+}
+
+// Category-specific list classes (for taxonomy term pages)
+.category-nous .list-title { color: #1565c0; }
+.category-physis .list-title { color: #2e7d32; }
+.category-techne .list-title { color: #e65100; }
+
+// ============================================================
+// Summary / excerpt
+// ============================================================
+
+.entry-summary {
+  color: #888;
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+// ============================================================
+// Details / Summary (spoiler)
+// ============================================================
+
+details.spoiler {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  margin: 1.5em 0;
+  overflow: hidden;
+
+  &[open] {
+    border-color: var(--color-accent);
+
+    summary {
+      border-bottom: 1px solid var(--color-border-light);
+      color: var(--color-accent);
+    }
+  }
+}
+
+details.spoiler > summary {
+  padding: 0.6em 1em;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95em;
+  color: var(--color-fg);
+  background: var(--color-surface);
+  user-select: none;
+  list-style: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::marker {
+    display: none;
+    content: none;
+  }
+
+  &::before {
+    content: "▸ ";
+    display: inline-block;
+    transition: transform var(--transition-base);
+    color: var(--color-accent);
+  }
+
+  &:hover {
+    background: rgba(0, 98, 172, 0.04);
+  }
+}
+
+details.spoiler[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+details.spoiler > :not(summary) {
+  padding: 0.5em 1em;
+}
+
+details.spoiler > :last-child {
+  padding-bottom: 1em;
+}
