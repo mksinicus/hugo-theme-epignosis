@@ -3,3 +3,4 @@ node_modules/
 .DS_Store
 exampleSite/hugo_stats.json
 exampleSite/themes
+exampleSite/public
