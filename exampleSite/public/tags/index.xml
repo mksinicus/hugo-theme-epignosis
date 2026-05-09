@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Epignosis</title>
+    <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/</link>
+    <description>Recent content in Tags on Epignosis</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 08 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://mksinicus.github.io/hugo-theme-epignosis/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bushiroad</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/bushiroad/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/bushiroad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Node</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/node/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/node/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Npm</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/npm/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/npm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>动画</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E5%8A%A8%E7%94%BB/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>观后感</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E8%A7%82%E5%90%8E%E6%84%9F/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E8%A7%82%E5%90%8E%E6%84%9F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>配置</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E9%85%8D%E7%BD%AE/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>权限</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E6%9D%83%E9%99%90/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E6%9D%83%E9%99%90/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>少女歌剧</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>音乐剧</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E9%9F%B3%E4%B9%90%E5%89%A7/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/tags/%E9%9F%B3%E4%B9%90%E5%89%A7/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

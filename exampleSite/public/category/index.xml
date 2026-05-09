@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Category on Epignosis</title>
+    <link>http://mksinicus.github.io/hugo-theme-epignosis/category/</link>
+    <description>Recent content in Category on Epignosis</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 08 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://mksinicus.github.io/hugo-theme-epignosis/category/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nous</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/category/nous/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/category/nous/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Physis</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/category/physis/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/category/physis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Techne</title>
+      <link>http://mksinicus.github.io/hugo-theme-epignosis/category/techne/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://mksinicus.github.io/hugo-theme-epignosis/category/techne/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

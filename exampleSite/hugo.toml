@@ -1,4 +1,4 @@
-baseURL = "http://localhost"
+baseURL = "http://mksinicus.github.io/hugo-theme-epignosis"
 locale = "zh-cn"
 defaultContentLanguage = "zh"
 title = "Epignosis"

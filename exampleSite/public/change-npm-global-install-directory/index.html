@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Change npm&#39;s Global Install Directory · Epignosis</title>
+<meta name="description" content="知识库 — nous (心灵) · physis (自然) · techne (技艺)">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script>
+
+<link rel="alternate" type="application/rss+xml" href="http://mksinicus.github.io/hugo-theme-epignosis/index.xml" title="Epignosis">
+
+</head>
+<body>
+  <div class="site-wrapper">
+    <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">Epignosis</a>
+    <nav class="site-nav">
+      <a href="/category/nous/" class="nav-link">Nous</a>
+      <a href="/category/physis/" class="nav-link">Physis</a>
+      <a href="/category/techne/" class="nav-link">Techne</a>
+      <a href="/tags/" class="nav-link">Tags</a>
+      <a href="/pages/" class="nav-link">Archive</a>
+    </nav>
+    <div class="nav-search">
+      <pagefind-searchbox show-branding="false"></pagefind-searchbox>
+    </div>
+  </div>
+</header>
+
+    <main class="site-main">
+      
+<article class="page">
+  <header class="page-header">
+    <h1>Change npm&#39;s Global Install Directory</h1>
+    <div class="entry-meta">
+      
+      <a href="/category/techne/" class="entry-category cat-techne">
+        techne
+      </a>
+      
+      <time class="entry-date" datetime="2026-05-08">2026-05-08</time>
+      
+      <span class="entry-tags">
+        
+        <a href="/tags/npm/" class="entry-tag">#npm</a>
+        
+        <a href="/tags/node/" class="entry-tag">#node</a>
+        
+        <a href="/tags/%E6%9D%83%E9%99%90/" class="entry-tag">#权限</a>
+        
+        <a href="/tags/%E9%85%8D%E7%BD%AE/" class="entry-tag">#配置</a>
+        
+      </span>
+      
+    </div>
+    
+  </header>
+
+  
+  <div class="content-area">
+    <aside class="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#动机">动机</a></li>
+    <li><a href="#操作步骤">操作步骤</a>
+      <ul>
+        <li><a href="#1-创建新目录">1. 创建新目录</a></li>
+        <li><a href="#2-设置-npm-prefix">2. 设置 npm prefix</a></li>
+        <li><a href="#3-更新-path">3. 更新 PATH</a></li>
+        <li><a href="#4-使配置生效">4. 使配置生效</a></li>
+        <li><a href="#5-验证">5. 验证</a></li>
+      </ul>
+    </li>
+    <li><a href="#注意事项">注意事项</a></li>
+  </ul>
+</nav>
+    </aside>
+    <div class="article-body">
+      <h2 id="动机">动机</h2>
+<p>默认情况下，<code>npm install -g</code> 将全局包安装到系统目录（通常是 <code>/usr/local/lib/node_modules</code> 或 <code>/usr/lib/node_modules</code>），这需要 <code>sudo</code> 权限。这不仅不安全，还可能导致权限混乱。</p>
+<p>将全局安装目录改为用户自有路径可以：</p>
+<ul>
+<li>避免 <code>sudo npm install -g</code> 的权限问题</li>
+<li>保持全局包与用户环境一致</li>
+<li>便于迁移和备份</li>
+</ul>
+<h2 id="操作步骤">操作步骤</h2>
+<h3 id="1-创建新目录">1. 创建新目录</h3>
+<div class="highlight"><pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p ~/.npm-global
+</span></span></code></pre></div><h3 id="2-设置-npm-prefix">2. 设置 npm prefix</h3>
+<div class="highlight"><pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm config <span style="color:#cb4b16">set</span> prefix ~/.npm-global
+</span></span></code></pre></div><p>这会写入 <code>~/.npmrc</code>，等价于：</p>
+<div class="highlight"><pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#cb4b16">echo</span> <span style="color:#2aa198">&#39;prefix=~/.npm-global&#39;</span> &gt;&gt; ~/.npmrc
+</span></span></code></pre></div><h3 id="3-更新-path">3. 更新 PATH</h3>
+<p>将以下内容添加到 shell 配置文件（bash: <code>~/.bashrc</code>，zsh: <code>~/.zshrc</code>，nu: <code>~/.config/nushell/config.nu</code>）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#cb4b16">export</span> <span style="color:#268bd2">PATH</span>=~/.npm-global/bin:<span style="color:#268bd2">$PATH</span>
+</span></span></code></pre></div><p>Nushell 用户：</p>
+<div class="highlight"><pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-nu" data-lang="nu"><span style="display:flex;"><span><span style="color:#268bd2">$env</span>.PATH = (<span style="color:#268bd2">$env</span>.PATH | <span style="color:#859900">prepend</span> <span style="color:#2aa198">&#39;~/.npm-global/bin&#39;</span>)
+</span></span></code></pre></div><h3 id="4-使配置生效">4. 使配置生效</h3>
+<div class="highlight"><pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#cb4b16">source</span> ~/.bashrc   <span style="color:#93a1a1;font-style:italic"># 或对应的配置文件</span>
+</span></span></code></pre></div><h3 id="5-验证">5. 验证</h3>
+<div class="highlight"><pre tabindex="0" style="color:#586e75;background-color:#eee8d5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm config get prefix
+</span></span><span style="display:flex;"><span><span style="color:#93a1a1;font-style:italic"># 应输出: /home/&lt;user&gt;/.npm-global</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>npm install -g some-package
+</span></span><span style="display:flex;"><span><span style="color:#93a1a1;font-style:italic"># 不应要求 sudo</span>
+</span></span></code></pre></div><h2 id="注意事项">注意事项</h2>
+<ul>
+<li>如果之前用 <code>sudo</code> 安装过全局包，旧的全局包不会自动迁移。建议先用 <code>sudo npm ls -g --depth=0</code> 列出，再重新安装。</li>
+<li><code>npx</code> 也会使用 <code>prefix</code> 配置的路径，无需额外设置。</li>
+<li>Node.js 版本管理器（nvm、fnm 等）已自动处理此问题，如果使用它们则无需手动设置。</li>
+</ul>
+
+    </div>
+  </div>
+  
+</article>
+
+    </main>
+    <footer class="site-footer">
+  <p>Epignosis · 知识库</p>
+</footer>
+
+  </div>
+</body>
+</html>

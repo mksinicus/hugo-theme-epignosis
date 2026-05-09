@@ -1,5 +1,5 @@
 .sass-cache/
 node_modules/
 .DS_Store
-exampleSite/public/
 exampleSite/hugo_stats.json
+exampleSite/themes
