@@ -2,7 +2,7 @@ baseURL = "http://mksinicus.github.io/hugo-theme-epignosis"
 locale = "zh-cn"
 defaultContentLanguage = "zh"
 title = "Epignosis"
-theme = "epignosis-theme"
+theme = "hugo-theme-epignosis"
 
 [taxonomies]
   tag = "tags"
