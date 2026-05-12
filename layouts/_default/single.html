@@ -4,7 +4,7 @@
     <h1>{{ .Title }}</h1>
     <div class="entry-meta">
       {{ range .Params.category }}
-      <a href="{{ "/category/" | relURL }}{{ . }}/" class="entry-category cat-{{ . }}">
+      <a href="{{ "category/" | relURL }}{{ . }}/" class="entry-category cat-{{ . }}">
         {{ . }}
       </a>
       {{ end }}
@@ -12,7 +12,7 @@
       {{ with .Params.tags }}
       <span class="entry-tags">
         {{ range . }}
-        <a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="entry-tag">#{{ . }}</a>
+        <a href="{{ "tags/" | relURL }}{{ . | urlize }}/" class="entry-tag">#{{ . }}</a>
         {{ end }}
       </span>
       {{ end }}
