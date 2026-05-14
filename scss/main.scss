@@ -24,10 +24,8 @@
 
 .entry-author {
   margin-bottom: 0.75rem;
-  font-size: 0.9em;
-  color: #777;
-  font-style: italic;
-  letter-spacing: 0.02em;
+  font-size: var(--font-size-small);
+  color: #999;
 }
 
 .author-name {
