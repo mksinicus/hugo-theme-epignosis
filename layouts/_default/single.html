@@ -2,6 +2,17 @@
 <article class="page">
   <header class="page-header">
     <h1>{{ .Title }}</h1>
+    {{ if .Params.authors }}
+    <div class="entry-author">
+      {{ range .Params.authors }}
+      <span class="author-name">— {{ . }}</span>
+      {{ end }}
+    </div>
+    {{ else if .Params.author }}
+    <div class="entry-author">
+      <span class="author-name">— {{ .Params.author }}</span>
+    </div>
+    {{ end }}
     <div class="entry-meta">
       {{ range .Params.category }}
       <a href="{{ "category/" | relURL }}{{ . }}/" class="entry-category cat-{{ . }}">

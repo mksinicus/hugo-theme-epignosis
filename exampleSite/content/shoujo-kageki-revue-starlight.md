@@ -1,6 +1,7 @@
 ---
 title: "少女歌剧 Revue Starlight"
 date: 2026-05-08
+authors: ["Marcus", "Kaeso"]
 category: ["physis", "nous"]
 tags: ["动画", "少女歌剧", "音乐剧", "Bushiroad", "观后感"]
 ---

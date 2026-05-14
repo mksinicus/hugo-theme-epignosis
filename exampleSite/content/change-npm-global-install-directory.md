@@ -1,6 +1,7 @@
 ---
 title: "Change npm's Global Install Directory"
 date: 2026-05-08
+author: "Kaeso R. Aurelius"
 category: ["techne"]
 tags: ["npm", "node", "权限", "配置"]
 ---
