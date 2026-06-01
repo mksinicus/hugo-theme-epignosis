@@ -1,0 +1,4 @@
+<div class="warning">
+{{ if .Get 0 }}<strong>{{ .Get 0 }}</strong><br>{{ end }}
+{{ .Inner | markdownify }}
+</div>
