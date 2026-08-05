@@ -566,7 +566,7 @@ mark {
   color: var(--color-accent)
 }
 .toc::before {
-  content: "目录";
+  content: "Contents";
   display: block;
   font-weight: 600;
   text-align: center;
