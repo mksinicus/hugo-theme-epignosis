@@ -1,0 +1,17 @@
+{{- $dest := .Destination -}}
+{{- $alt := .Text -}}
+{{- $title := .Title -}}
+{{- $isRemote := or (hasPrefix $dest "http://") (hasPrefix $dest "https://") -}}
+{{- if $isRemote -}}
+<img src="{{ $dest | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
+{{- else -}}
+{{- with resources.Get $dest -}}
+<img src="{{ .RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
+{{- else -}}
+{{- with .Page.Resources.GetMatch $dest -}}
+<img src="{{ .RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
+{{- else -}}
+<img src="{{ $dest | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}>
+{{- end -}}
+{{- end -}}
+{{- end -}}

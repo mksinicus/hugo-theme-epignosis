@@ -1,0 +1,16 @@
+{{- $href := .Destination -}}
+{{- $text := .Text -}}
+{{- $isRemote := or (hasPrefix $href "http://") (hasPrefix $href "https://") -}}
+{{- if $isRemote -}}
+<a href="{{ $href | safeURL }}">{{ $text | safeHTML }}</a>
+{{- else -}}
+{{- with resources.Get $href -}}
+<a href="{{ .RelPermalink }}">{{ $text | safeHTML }}</a>
+{{- else -}}
+{{- with .Page.Resources.GetMatch $href -}}
+<a href="{{ .RelPermalink }}">{{ $text | safeHTML }}</a>
+{{- else -}}
+<a href="{{ $href | safeURL }}">{{ $text | safeHTML }}</a>
+{{- end -}}
+{{- end -}}
+{{- end -}}
