@@ -68,6 +68,26 @@ a {
   }
 }
 
+// Bilinks — internal [[wiki]] links (bilink shortcode / Backlinks list)
+a.bilink {
+  white-space: nowrap;
+
+  &::before {
+    content: "[[";
+    color: #999;
+  }
+
+  &::after {
+    content: "]]";
+    color: #999;
+  }
+
+  // Brackets are decoration; keep the label itself without underline feedback
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 // Headings
 h1, h2, h3, h4, h5, h6 {
   margin: 1.1rem 0 var(--block-margin) 0;
