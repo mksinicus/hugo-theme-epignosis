@@ -89,6 +89,10 @@
 
 .site-main {
   flex: 1;
+  // width:100% + auto margins: as a flex item in the column flex wrapper,
+  // cross-axis auto margins would otherwise defeat stretch and shrink the
+  // main to content width (max-width alone only caps).
+  width: 100%;
   max-width: var(--max-width);
   margin: 2rem auto;
   padding: 0 var(--content-padding);
@@ -105,6 +109,9 @@
 
 .content-area {
   display: grid;
+  // Below the breakpoint the single implicit column would otherwise size
+  // to content (shrink-wrap); minmax(0,1fr) keeps every page the same width.
+  grid-template-columns: minmax(0, 1fr);
   gap: 2rem;
 
   @media (min-width: 1120px) {
@@ -119,6 +126,7 @@
 
   @media (min-width: 1120px) {
     grid-column: 2;
+    width: var(--max-width);
   }
 }
 
