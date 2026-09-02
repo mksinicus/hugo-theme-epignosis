@@ -14,12 +14,12 @@
   {{- end -}}
 {{- end -}}
 {{- with $backlinks -}}
-<nav class="backlinks">
+<div class="backlinks">
   <h2>Backlinks</h2>
   <ul>
     {{- range . -}}
     <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
     {{- end -}}
   </ul>
-</nav>
+</div>
 {{- end -}}

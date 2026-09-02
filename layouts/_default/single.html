@@ -40,13 +40,14 @@
     </aside>
     <div class="article-body">
       {{ .Content }}
+      {{ partial "backlinks.html" . }}
     </div>
   </div>
   {{ else }}
   <div class="article-body">
     {{ .Content }}
+    {{ partial "backlinks.html" . }}
   </div>
   {{ end }}
 </article>
-{{ partial "backlinks.html" . }}
 {{ end }}
