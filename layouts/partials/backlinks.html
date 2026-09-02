@@ -1,0 +1,25 @@
+{{- /* backlinks: 列出所有用 {{< bilink >}} 指向当前页的站内页面。
+语义：只有 bilink 显式标记的链接才计入（relref/普通链接不算）。
+识别方式：在当前页渲染后的 .Content 里找 href="<当前页URL>" class="bilink"。
+用正则 \s* 容忍属性间空白（Goldmark 输出可能插入换行）。
+空列表时不渲染整个 section。
+用法（single.html 等页面模板底部）: {{ partial "backlinks.html" . }}
+*/ -}}
+{{- $current := . -}}
+{{- $pattern := printf "href=\"%s\"\\s*class=\"bilink\"" $current.RelPermalink -}}
+{{- $backlinks := slice -}}
+{{- range site.RegularPages -}}
+  {{- if and (ne .RelPermalink $current.RelPermalink) (findRE $pattern .Content) -}}
+    {{- $backlinks = $backlinks | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- with $backlinks -}}
+<nav class="backlinks">
+  <h2>Backlinks</h2>
+  <ul>
+    {{- range . -}}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end -}}
+  </ul>
+</nav>
+{{- end -}}

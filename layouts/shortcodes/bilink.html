@@ -1,0 +1,14 @@
+{{- /* bilink: 站内双向链接短代码。
+用法:
+  {{< bilink "target-slug.md" >}}              → 链接文字自动取目标页标题
+  {{< bilink "target-slug.md" "自定义文字" >}}  → 指定链接文字
+目标解析失败即构建报错（与 relref 的 REF_NOT_FOUND 一致）。
+渲染结果带 class="bilink"，backlinks partial 据此识别。
+*/ -}}
+{{- $path := .Get 0 -}}
+{{- $label := .Get 1 | default "" -}}
+{{- $target := site.GetPage $path -}}
+{{- if not $target -}}
+  {{- errorf "bilink: target %q not found (referenced from %s)" $path .Page.Path -}}
+{{- end -}}
+<a href="{{ $target.RelPermalink }}" class="bilink">{{ $label | default $target.Title }}</a>
