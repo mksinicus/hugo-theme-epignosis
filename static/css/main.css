@@ -76,8 +76,8 @@ body {
 }
 :lang(ja) body,
 :lang(zh) body,
-body :lang(ja),
-body :lang(zh) {
+body :lang(ja):not(code):not(kbd):not(pre):not(samp):not(math),
+body :lang(zh):not(code):not(kbd):not(pre):not(samp):not(math) {
   font-family: glyph-correction,punct,var(--font-body)
 }
 h1,

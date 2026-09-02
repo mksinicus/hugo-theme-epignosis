@@ -48,13 +48,15 @@ body {
   }
 }
 
-// CJK-specific font override
-:lang(zh),
-:lang(ja) {
-  body &,
-  & body {
-    font-family: $font-tricks, var(--font-body);
-  }
+// CJK-specific font override — prose text only.
+// `body :lang(zh)` matches *every* element in a zh/ja document (html
+// lang=zh-cn propagates via :lang), so without the :not() guards it
+// would also override code/kbd/pre/samp/math and kill the mono/math fonts.
+:lang(zh) body,
+:lang(ja) body,
+body :lang(zh):not(code):not(kbd):not(pre):not(samp):not(math),
+body :lang(ja):not(code):not(kbd):not(pre):not(samp):not(math) {
+  font-family: $font-tricks, var(--font-body);
 }
 
 // Headings
