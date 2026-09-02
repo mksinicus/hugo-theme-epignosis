@@ -49,16 +49,19 @@ body {
 }
 
 // CJK-specific font override.
-// Attribute selectors ([lang=…]) on purpose instead of :lang(): :lang()
+// Attribute selectors ([lang^=…]) on purpose instead of :lang(): :lang()
 // matches by *inherited* language, so in a zh/ja document it hits every
 // element — including chroma highlight spans inside <pre><code> — and
 // replaces the inherited mono stack with the proportional prose stack.
-// [lang=…] only matches elements that carry the attribute explicitly,
+// [lang^=…] only matches elements that carry the attribute explicitly,
 // so markup that never sets lang (code, its wrappers, …) is untouched.
-[lang="zh"] body,
-[lang="ja"] body,
-body [lang="zh"],
-body [lang="ja"] {
+// ^= (prefix) instead of = (exact): Hugo's locale is zh-cn, not zh, so an
+// exact [lang="zh"] never matches <html lang="zh-cn">; the prefix also
+// covers three-letter forms like zho.
+[lang^="zh"] body,
+[lang^="ja"] body,
+body [lang^="zh"],
+body [lang^="ja"] {
   font-family: $font-tricks, var(--font-body);
 }
 

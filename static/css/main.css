@@ -74,10 +74,10 @@ body {
     text-emphasis-position: under
   }
 }
-[lang=ja] body,
-[lang=zh] body,
-body [lang=ja],
-body [lang=zh] {
+[lang^=ja] body,
+[lang^=zh] body,
+body [lang^=ja],
+body [lang^=zh] {
   font-family: glyph-correction,punct,var(--font-body)
 }
 h1,
