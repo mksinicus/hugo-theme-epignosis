@@ -48,14 +48,17 @@ body {
   }
 }
 
-// CJK prose stack — set it at the document level only and let font-family
-// inherit. A per-element :lang(zh) override would also match wrapper
-// elements inside <code>/<pre> (e.g. chroma highlight spans) and force the
-// proportional prose stack onto them, defeating the mono font. font-family
-// inherits, so all prose picks the stack up while elements that declare
-// their own font (code/kbd/pre/samp → mono, math → STIX) keep it.
-:lang(zh) body,
-:lang(ja) body {
+// CJK-specific font override.
+// Attribute selectors ([lang=…]) on purpose instead of :lang(): :lang()
+// matches by *inherited* language, so in a zh/ja document it hits every
+// element — including chroma highlight spans inside <pre><code> — and
+// replaces the inherited mono stack with the proportional prose stack.
+// [lang=…] only matches elements that carry the attribute explicitly,
+// so markup that never sets lang (code, its wrappers, …) is untouched.
+[lang="zh"] body,
+[lang="ja"] body,
+body [lang="zh"],
+body [lang="ja"] {
   font-family: $font-tricks, var(--font-body);
 }
 
