@@ -531,6 +531,9 @@ mark {
   margin: 2rem auto;
   padding: 0 var(--content-padding)
 }
+.site-main--list {
+  width: unset
+}
 .content-area {
   display: grid;
   grid-template-columns: minmax(0,1fr);

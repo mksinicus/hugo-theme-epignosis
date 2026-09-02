@@ -103,6 +103,13 @@
   }
 }
 
+// Home & list pages (nodes): let the column size itself to its content and
+// auto-center via the cross-axis auto margins, instead of stretching full
+// width. Article pages keep width:100% (fixes narrow short pages).
+.site-main--list {
+  width: unset;
+}
+
 // ============================================================
 // Content area with aside (TOC on the left)
 // ============================================================
