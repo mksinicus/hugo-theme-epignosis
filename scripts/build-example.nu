@@ -45,7 +45,7 @@ def 'build-css' [scss_dir: string, css_dir: string] {
 
 def 'build-site' [example_dir: string, repo_root: string] {
   print "🏗️  Building exampleSite with Hugo..."
-  let baseURL = "http://mksinicus.github.io/hugo-theme-epignosis"
+  let baseURL = "https://mksinicus.github.io/hugo-theme-epignosis"
   # themesDir is the parent of the repo, so Hugo finds repo_root as hugo-theme-epignosis
   let themes_dir = ($repo_root | path dirname)
 

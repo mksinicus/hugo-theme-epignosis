@@ -2,5 +2,6 @@
 node_modules/
 .DS_Store
 exampleSite/hugo_stats.json
+exampleSite/.hugo_build.lock
 exampleSite/themes
 exampleSite/public
