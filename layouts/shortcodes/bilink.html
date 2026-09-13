@@ -11,4 +11,4 @@
 {{- if not $target -}}
   {{- errorf "bilink: target %q not found (referenced from %s)" $path .Page.Path -}}
 {{- end -}}
-<a href="{{ $target.RelPermalink }}" class="bilink">{{ $label | default $target.Title }}</a>
+<a href="{{ $target.RelPermalink }}" class="bilink">{{ $label | default $target.Title }}</a>{{- /* 行内短代码：模板文件末尾的换行会被原样输出，在行内渲染成一个多出来的空格（前无空格、后增生空格）。此处 trim 掉尾部空白。 */ -}}
