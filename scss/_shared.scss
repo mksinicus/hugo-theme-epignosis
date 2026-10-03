@@ -70,8 +70,6 @@ a {
 
 // Bilinks — internal [[wiki]] links (bilink shortcode / Backlinks list)
 a.bilink {
-  white-space: nowrap;
-
   &::before {
     content: "[[";
     color: #999;

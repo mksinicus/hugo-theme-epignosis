@@ -168,9 +168,6 @@ a:focus-visible {
   outline-offset: 2px;
   border-radius: var(--radius-sm)
 }
-a.bilink {
-  white-space: nowrap
-}
 a.bilink::before {
   content: "[[";
   color: #999
