@@ -121,8 +121,12 @@ ol, ul {
 
 li ul,
 li ol {
-  &:last-of-type { margin-bottom: 0; }
+  &:last-child { margin-bottom: 0; }
   &:first-of-type { margin-top: 0; }
+}
+
+li > p:first-child {
+  margin-top: var(--block-margin);
 }
 
 // Horizontal rule
