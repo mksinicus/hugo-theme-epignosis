@@ -168,9 +168,6 @@ a:focus-visible {
   outline-offset: 2px;
   border-radius: var(--radius-sm)
 }
-a.bilink {
-  white-space: nowrap
-}
 a.bilink::before {
   content: "[[";
   color: #999
@@ -218,13 +215,16 @@ ul {
   padding-left: 2em
 }
 blockquote>:last-child,
-li ol:last-of-type,
-li ul:last-of-type {
+li ol:last-child,
+li ul:last-child {
   margin-bottom: 0
 }
 li ol:first-of-type,
 li ul:first-of-type {
   margin-top: 0
+}
+li > p:first-child {
+  margin-top: var(--block-margin)
 }
 hr {
   border: none;
